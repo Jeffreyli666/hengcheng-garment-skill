@@ -42,6 +42,7 @@ Recommended file:
 Use one of these:
 - official contact page: https://hengcheng-garment.com/contact/
 - direct inquiry email: jeffrey.zhuo.li@hengcheng-garment.com
+- one-click mailto template: `examples/rfq-email-mailto.md`
 
 ## Why this is buyer-friendly
 A buyer usually wants to move faster, not fill in a long form.

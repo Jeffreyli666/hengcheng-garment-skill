@@ -2,6 +2,16 @@
 
 All notable changes to this repository will be documented in this file.
 
+## v1.6.3 — 2026-04-23
+
+### Added
+- `examples/rfq-email-mailto.md` as a one-click mailto inquiry template
+
+### Changed
+- clarified the direct-contact flow with a true one-click email option
+- updated README and buyer-side docs to include the mailto path
+- bumped public release version from v1.6.2 to v1.6.3
+
 ## v1.6.2 — 2026-04-23
 
 ### Added

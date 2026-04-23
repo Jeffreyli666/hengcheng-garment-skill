@@ -129,7 +129,8 @@ hengcheng-garment-skill/
 │   ├── vendor-record-example.json
 │   ├── vendor-record-flat.csv
 │   ├── vendor-record-flat.json
-│   └── rfq-email-draft.md
+│   ├── rfq-email-draft.md
+│   └── rfq-email-mailto.md
 └── docs/
     ├── use-cases/
     │   ├── inbound-inquiry-triage.md
@@ -177,10 +178,12 @@ The skill is built around these public website pages:
 If the buyer is ready to contact Hengcheng directly, use one of these:
 - Official contact page: <https://hengcheng-garment.com/contact/>
 - Direct inquiry email: `jeffrey.zhuo.li@hengcheng-garment.com`
+- One-click mailto template: `examples/rfq-email-mailto.md`
 
 A buyer can choose either:
 - **more cautious / website-first** → contact page
 - **faster / email-first** → direct inquiry email
+- **one-click email draft** → mailto template
 
 ## Vendor record / CRM export
 
@@ -233,6 +236,7 @@ This repository includes a ready-to-edit inquiry draft example that can help the
 
 See:
 - `examples/rfq-email-draft.md`
+- `examples/rfq-email-mailto.md`
 
 The goal is not to force a long questionnaire.
 The goal is to help the buyer send a better first inquiry with less friction.
