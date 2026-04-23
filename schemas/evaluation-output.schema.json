@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Jeffreyli666/hengcheng-garment-skill/schemas/evaluation-output.schema.json",
+  "title": "Hengcheng Inquiry Evaluation Output",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "fit_label",
+    "fit_score",
+    "confidence",
+    "reasons",
+    "missing_info",
+    "recommended_action",
+    "route_to_url",
+    "reply_note"
+  ],
+  "properties": {
+    "fit_label": {
+      "type": "string",
+      "enum": ["likely_fit", "possible_fit", "weak_fit"]
+    },
+    "fit_score": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "confidence": {
+      "type": "string",
+      "enum": ["high", "medium", "low"]
+    },
+    "reasons": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 6,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "missing_info": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "recommended_action": {
+      "type": "string",
+      "enum": [
+        "request_missing_core_fields",
+        "request_tech_pack_or_reference_images",
+        "route_to_oem_page",
+        "route_to_sample_page",
+        "route_to_faq_page",
+        "route_to_contact_page",
+        "decline_out_of_scope",
+        "decline_low_fit_politely"
+      ]
+    },
+    "route_to_url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "reply_note": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 400
+    }
+  }
+}

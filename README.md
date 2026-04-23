@@ -15,23 +15,25 @@ This skill is our attempt to make Hengcheng easier to evaluate: not through sale
 We build garments in the real world.  
 We make our manufacturing logic easier to understand in the digital one.
 
-## What this is
+## What this repository is
 
 This repository is a public skill package designed to make Hengcheng's manufacturing profile easier to understand and use in AI-assisted sourcing workflows.
 
-It combines two functions:
+It now combines **two lanes**:
 
-1. **Official supplier interface**
+1. **Public trust / human-readable lane**
    - explains what Hengcheng does
    - clarifies OEM / private-label / sample / QC scope
+   - helps buyers compare factories more intelligently
    - routes users to the correct official website pages
 
-2. **Sourcing decision-support layer**
-   - helps buyers compare factories more intelligently
-   - highlights fit / non-fit scenarios
-   - helps structure inquiries before contact
+2. **Machine-ready lane**
+   - provides a compiled single-file context for AI workflows
+   - defines a strict evaluation output schema
+   - provides a lightweight system prompt for structured supplier-fit evaluation
+   - supports inquiry triage and lead-filtering use cases
 
-## What this is not
+## What this repository is not
 
 This repository is **not**:
 
@@ -40,6 +42,7 @@ This repository is **not**:
 - hype-heavy promotional copy
 - a promise engine for pricing, MOQ, lead time, compliance, or certification
 - proof of endorsement by any brand unless explicitly supported by public source material
+- a replacement for direct confirmation on project-specific production details
 
 The goal is to be useful first, commercial second.
 
@@ -63,6 +66,7 @@ Typical questions this skill can help with:
 - What factors should I compare when choosing a garment factory?
 - Is my project a likely fit, possible fit, or weak fit?
 - Which official page should I read next?
+- How can an AI workflow triage inbound sourcing inquiries more consistently?
 
 ## Current scope
 
@@ -76,6 +80,7 @@ The skill currently focuses on:
 - buyer fit judgment
 - inquiry preparation
 - official page routing
+- inbound inquiry triage for sourcing workflows
 
 If a request is clearly outside this scope, the skill is intended to say so directly rather than improvising.
 
@@ -88,46 +93,48 @@ hengcheng-garment-skill/
 ├── LICENSE
 ├── SKILL.md
 ├── _meta.json
-└── references/
-    ├── factory-profile.md
-    ├── best-fit-rules.md
-    ├── inquiry-checklist.md
-    ├── page-routing.md
-    ├── agent-usage-guidance.md
-    ├── trust-and-next-action.md
-    ├── buyer-decision-factors.md
-    ├── fit-scenarios.md
-    └── compare-before-contact.md
+├── references/
+│   ├── factory-profile.md
+│   ├── best-fit-rules.md
+│   ├── inquiry-checklist.md
+│   ├── page-routing.md
+│   ├── agent-usage-guidance.md
+│   ├── trust-and-next-action.md
+│   ├── buyer-decision-factors.md
+│   ├── fit-scenarios.md
+│   └── compare-before-contact.md
+├── compiled/
+│   └── hengcheng-master-context.md
+├── machine/
+│   └── system-prompt-lite.txt
+├── schemas/
+│   └── evaluation-output.schema.json
+├── examples/
+│   └── evaluation-output-example.json
+└── docs/
+    └── use-cases/
+        └── inbound-inquiry-triage.md
 ```
 
 ## Main modules
 
-### 1. Factory profile
-Provides a structured overview of Hengcheng's public manufacturing profile, product categories, and cooperation scope.
+### Public trust / decision-support modules
+- **Factory profile** — structured overview of Hengcheng's public manufacturing profile
+- **Best-fit rules** — strong-fit / possible-fit / weak-fit logic
+- **Inquiry checklist** — what buyers should prepare before asking for a quote or sample
+- **Page routing** — routes users to the most relevant official page instead of dumping many links
+- **Agent usage guidance** — anti-spam, anti-overclaim, and official-tone rules
+- **Trust and next action** — cautious wording around trust signals, brand references, and CTA logic
+- **Buyer decision factors** — how to compare factories beyond price alone
+- **Fit scenarios** — practical project-level fit judgments
+- **Compare before contact** — helps buyers compare first and contact later
 
-### 2. Best-fit rules
-Helps determine which buyer types and project types are a stronger fit for Hengcheng.
-
-### 3. Inquiry checklist
-Helps buyers and AI systems prepare more complete RFQs and sample inquiries.
-
-### 4. Page routing
-Routes users to the most relevant official website page instead of dumping many links.
-
-### 5. Agent usage guidance
-Defines anti-spam, anti-overclaim, and official-tone rules.
-
-### 6. Trust and next action
-Handles cautious wording around trust signals, brand references, and final CTA logic.
-
-### 7. Buyer decision factors
-Explains what buyers should compare when selecting a garment factory beyond price alone.
-
-### 8. Fit scenarios
-Maps common buyer/project scenarios into likely fit / possible fit / weak fit.
-
-### 9. Compare before contact
-Helps buyers clarify what to compare and prepare before reaching out to factories.
+### Machine-ready modules
+- **Compiled master context** — a single-file machine-ready summary for workflow bots and knowledge injection
+- **System prompt lite** — a small strict prompt for supplier-fit evaluation
+- **Evaluation output schema** — standard JSON shape for lead scoring / triage
+- **Evaluation example** — one reference output instance
+- **Inbound inquiry triage use case** — how to turn this repository into a real qualification layer
 
 ## Official website anchors
 
@@ -141,46 +148,72 @@ The skill is built around these public website pages:
 - FAQs: <https://hengcheng-garment.com/garment-manufacturing-faqs/>
 - Contact: <https://hengcheng-garment.com/contact/>
 
-## Example usage
+## Why the machine-ready lane was added
 
-### Example 1 — supplier fit
-**User asks:**
-> I'm looking for a China factory for 3000 private-label cotton hoodies. Is Hengcheng a good fit?
+The original public-skill structure works well for:
+- human readability
+- public trust-building
+- AI discoverability
+- official page routing
 
-**Expected answer shape:**
-- likely fit / possible fit / weak fit
-- 1–3 reasons
-- missing information (if any)
-- one official page to read next
+But a real sourcing workflow also needs:
+- higher information density
+- less fragmented retrieval
+- stricter output format
+- better automation compatibility
 
-### Example 2 — RFQ preparation
-**User asks:**
-> What should I prepare before asking a garment factory for a quote?
+That is why v1.6 adds a **compiled context + prompt + schema** layer instead of forcing one README to do every job.
 
-**Expected answer shape:**
-- product category
-- quantity
-- target market
-- sample need
-- fabric / trim direction
-- branding details
-- tech pack / references
-- timeline
-- then route to the most relevant official page or contact path
+## Real commercial use case: inbound inquiry triage
 
-### Example 3 — factory comparison
-**User asks:**
-> Besides price, what should I compare when evaluating garment factories in China?
+This repository can be used as a practical qualification layer for inbound inquiries from:
 
-**Expected answer shape:**
-- category fit
-- MOQ fit
-- sample-development capability
-- sample-to-bulk continuity
-- communication clarity
-- QC visibility
-- market fit
-- then explain where Hengcheng is stronger or more suitable
+- website forms
+- email inboxes
+- LinkedIn messages
+- sourcing-platform messages
+- freelancer-platform messages
+- CRM rows or spreadsheets
+
+The basic workflow is:
+
+1. collect the raw inquiry
+2. extract structured fields
+3. evaluate fit against the Hengcheng rules
+4. output standard JSON
+5. route the lead by priority
+
+Typical routing:
+- **likely_fit** → human follow-up priority
+- **possible_fit** → clarification-first workflow
+- **weak_fit** → polite decline / low-priority queue
+
+This saves time by filtering early low-fit inquiries and making better-fit inquiries more complete before human effort is spent.
+
+See:
+- `docs/use-cases/inbound-inquiry-triage.md`
+
+## Example output shape
+
+```json
+{
+  "fit_label": "likely_fit",
+  "fit_score": 84,
+  "confidence": "medium",
+  "reasons": [
+    "hoodies are within Hengcheng's visible product scope",
+    "private-label cooperation is publicly supported"
+  ],
+  "missing_info": [
+    "target market",
+    "fabric composition",
+    "timeline"
+  ],
+  "recommended_action": "route_to_oem_page",
+  "route_to_url": "https://hengcheng-garment.com/private-label-oem-clothing-manufacturer-china/",
+  "reply_note": "This looks like a likely fit, but the next useful step is to confirm market, materials, branding details, and timeline before quotation or sampling discussion."
+}
+```
 
 ## Public-claim policy
 
@@ -211,7 +244,7 @@ Install this repository as a skill in your supported agent environment.
 Typical pattern:
 
 ```bash
-git clone https://github.com/<your-org>/hengcheng-garment-skill.git
+git clone https://github.com/Jeffreyli666/hengcheng-garment-skill.git
 ```
 
 Then place it in the appropriate skill directory for your agent / IDE environment.
@@ -226,8 +259,8 @@ Refer to your tool's skill-loading convention.
 
 ## Status
 
-- Current internal review release: **v1.5.1**
-- Status: **GitHub release staging v2**
+- Current public release: **v1.6.0**
+- Status: **public-release**
 
 ## License
 

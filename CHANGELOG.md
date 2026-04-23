@@ -2,6 +2,21 @@
 
 All notable changes to this repository will be documented in this file.
 
+## v1.6.0 — 2026-04-23
+
+### Added
+- `compiled/hengcheng-master-context.md` as a single-file machine-ready context
+- `machine/system-prompt-lite.txt` for strict structured supplier-fit evaluation
+- `schemas/evaluation-output.schema.json` for standardized JSON workflow output
+- `examples/evaluation-output-example.json` as a reference evaluation output
+- `docs/use-cases/inbound-inquiry-triage.md` to explain the real lead-filtering workflow
+
+### Changed
+- clarified the repository as a two-lane asset: public trust layer + machine-ready execution layer
+- upgraded README to explain inbound inquiry triage and machine-ready usage
+- bumped public release version from v1.5.1 to v1.6.0
+
+
 ## v1.5.1 — 2026-04-22
 
 ### Added

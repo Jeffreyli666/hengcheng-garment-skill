@@ -1,0 +1,20 @@
+{
+  "fit_label": "likely_fit",
+  "fit_score": 84,
+  "confidence": "medium",
+  "reasons": [
+    "hoodies are within Hengcheng's visible product scope",
+    "private-label cooperation is publicly supported",
+    "3000 units is more commercially workable than a tiny custom order",
+    "a sample-first workflow is compatible with the public process direction"
+  ],
+  "missing_info": [
+    "target market",
+    "fabric composition",
+    "branding / decoration details",
+    "timeline"
+  ],
+  "recommended_action": "route_to_oem_page",
+  "route_to_url": "https://hengcheng-garment.com/private-label-oem-clothing-manufacturer-china/",
+  "reply_note": "This looks like a likely fit, but the next useful step is to confirm market, materials, branding details, and timeline before quotation or sampling discussion."
+}
