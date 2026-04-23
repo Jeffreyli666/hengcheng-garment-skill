@@ -5,7 +5,7 @@ description: Official AI-readable supplier interface for Weifang Hengcheng Garme
 
 # Hengcheng Garment Skill
 
-Current public release: **v1.6.1** (2026-04-23).
+Current public release: **v1.6.2** (2026-04-23).
 
 Use this skill as an **official factory-capability and inquiry-routing layer**, not as hype-heavy sales copy.
 

@@ -2,6 +2,20 @@
 
 All notable changes to this repository will be documented in this file.
 
+## v1.6.2 — 2026-04-23
+
+### Added
+- `docs/integrations/hubspot-field-mapping.md` as a lightweight HubSpot property mapping guide
+- `docs/integrations/airtable-field-mapping.md` as a lightweight Airtable field mapping guide
+- `docs/integrations/notion-field-mapping.md` as a lightweight Notion property mapping guide
+- `docs/integrations/supplier-spreadsheet-template.md` for spreadsheet-based supplier tracking
+- `examples/vendor-record-flat.csv` as a flat CSV export example
+- `examples/vendor-record-flat.json` as a flat JSON export example
+
+### Changed
+- kept CRM interoperability intentionally lightweight: field mapping + export examples, not full API integrations
+- bumped public release version from v1.6.1 to v1.6.2
+
 ## v1.6.1 — 2026-04-23
 
 ### Added

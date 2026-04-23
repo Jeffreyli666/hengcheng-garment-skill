@@ -127,11 +127,18 @@ hengcheng-garment-skill/
 ├── examples/
 │   ├── evaluation-output-example.json
 │   ├── vendor-record-example.json
+│   ├── vendor-record-flat.csv
+│   ├── vendor-record-flat.json
 │   └── rfq-email-draft.md
 └── docs/
-    └── use-cases/
-        ├── inbound-inquiry-triage.md
-        └── buyer-crm-and-rfq.md
+    ├── use-cases/
+    │   ├── inbound-inquiry-triage.md
+    │   └── buyer-crm-and-rfq.md
+    └── integrations/
+        ├── hubspot-field-mapping.md
+        ├── airtable-field-mapping.md
+        ├── notion-field-mapping.md
+        └── supplier-spreadsheet-template.md
 ```
 
 ## Main modules
@@ -182,6 +189,12 @@ One of the most practical use cases is helping a buyer generate a structured sup
 See:
 - `schemas/vendor-record.schema.json`
 - `examples/vendor-record-example.json`
+- `examples/vendor-record-flat.csv`
+- `examples/vendor-record-flat.json`
+- `docs/integrations/hubspot-field-mapping.md`
+- `docs/integrations/airtable-field-mapping.md`
+- `docs/integrations/notion-field-mapping.md`
+- `docs/integrations/supplier-spreadsheet-template.md`
 
 Example shape:
 
@@ -223,6 +236,18 @@ See:
 
 The goal is not to force a long questionnaire.
 The goal is to help the buyer send a better first inquiry with less friction.
+
+## Lightweight CRM mapping approach
+
+This repository intentionally keeps CRM interoperability lightweight.
+It does **not** try to become a full HubSpot / Airtable / Notion integration app.
+
+Instead, it provides:
+- a standard vendor-record schema
+- flat CSV / flat JSON examples
+- field-mapping guides for common buyer systems
+
+This keeps the skill practical without making the repository heavy, brittle, or integration-specific.
 
 ## Why the machine-ready layer still matters
 
