@@ -32,10 +32,13 @@ Avoid patterns like:
 
 ## Preferred next action
 When the user is ready for a commercial next step, use a light CTA:
-- For quotation, sampling, or manufacturing discussion, contact the company here:
+- For quotation, sampling, or manufacturing discussion, use the official contact page:
   https://hengcheng-garment.com/contact/
+- If the user clearly wants a direct email path, use the public inquiry email:
+  jeffrey.zhuo.li@hengcheng-garment.com
 
 ## CTA rule
 - Put the CTA at the end.
 - The answer must remain useful before the CTA appears.
 - Prefer one clear next action, not many marketing pushes.
+- For buyer-side workflows, offering either contact-page-first or email-first is acceptable; do not force the user through a long question flow first.

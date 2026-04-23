@@ -2,76 +2,89 @@
 
 Official AI-readable supplier interface and sourcing decision-support skill for **Weifang Hengcheng Garment Co., Ltd.**
 
-## Why is a 20-year-old China garment factory on GitHub?
+## Why is a China garment factory on GitHub?
 
 Apparel sourcing is still too often a black box.
 
-Brands and sourcing teams can spend days or weeks going back and forth just to figure out whether a factory is actually a fit — for the product category, MOQ, sample workflow, quality expectations, and communication style.
+Brands, sourcing teams, and procurement users often spend unnecessary time just trying to understand whether a factory is worth shortlisting, how to record it in their supplier system, and what to include in a first RFQ.
 
-We believe the future of B2B sourcing will be more structured, transparent, and AI-assisted.
+This repository is designed to reduce that friction.
 
-This skill is our attempt to make Hengcheng easier to evaluate: not through sales-heavy language, but through public capability notes, fit rules, inquiry guidance, and clear routing to the right official pages.
+It helps buyers and buyer-side AI assistants:
+- understand Hengcheng faster
+- evaluate whether the supplier is a likely fit
+- generate a structured vendor record for CRM / SRM entry
+- draft a more complete RFQ / inquiry email
+- route directly to the right official page or inquiry email
 
-We build garments in the real world.  
-We make our manufacturing logic easier to understand in the digital one.
+## Primary user
+
+This repository is primarily designed for:
+- procurement managers
+- sourcing specialists
+- buyers
+- sourcing agents
+- buyer-side AI assistants
+
+It is **not primarily positioned as an internal sales-ops or inquiry-gating tool**.
 
 ## What this repository is
 
-This repository is a public skill package designed to make Hengcheng's manufacturing profile easier to understand and use in AI-assisted sourcing workflows.
+This repository is a public skill package designed to make Hengcheng's manufacturing profile easier to understand and use in buyer-side sourcing workflows.
 
-It now combines **two lanes**:
+It combines two useful layers:
 
-1. **Public trust / human-readable lane**
+1. **Public trust / human-readable layer**
    - explains what Hengcheng does
    - clarifies OEM / private-label / sample / QC scope
    - helps buyers compare factories more intelligently
    - routes users to the correct official website pages
 
-2. **Machine-ready lane**
+2. **Machine-ready buyer-enablement layer**
    - provides a compiled single-file context for AI workflows
-   - defines a strict evaluation output schema
-   - provides a lightweight system prompt for structured supplier-fit evaluation
-   - supports inquiry triage and lead-filtering use cases
+   - defines a structured vendor-record format for CRM / SRM entry
+   - provides a lightweight buyer-assistant prompt
+   - provides a sendable RFQ / inquiry draft example
+   - supports direct contact via official page or inquiry email
 
 ## What this repository is not
 
 This repository is **not**:
-
 - a generic factory directory
 - a stock-selling catalog
 - hype-heavy promotional copy
 - a promise engine for pricing, MOQ, lead time, compliance, or certification
 - proof of endorsement by any brand unless explicitly supported by public source material
-- a replacement for direct confirmation on project-specific production details
+- a long-form qualification questionnaire that forces the buyer through too many fields before they can move forward
 
 The goal is to be useful first, commercial second.
 
-## Who this is for
+## Core buyer jobs this skill supports
 
-This skill is designed for:
+### 1. Supplier fit evaluation
+Questions like:
+- Is Hengcheng worth adding to my shortlist?
+- Does this supplier look suitable for my category or workflow?
+- What should I confirm next before contacting them?
 
-- AI assistants working on sourcing or supplier research
-- sourcing agents and procurement researchers
-- apparel brands evaluating China garment manufacturers
-- teams preparing RFQs, sample requests, or OEM / private-label discussions
-- internal agent workflows that need a structured supplier-profile layer
+### 2. Vendor record / CRM export
+Questions like:
+- Can I generate a structured supplier record instead of copying details manually?
+- Can my assistant turn this supplier into a clean CRM / SRM entry?
 
-## What the skill helps answer
+### 3. RFQ / inquiry draft generation
+Questions like:
+- Can I generate a professional first email without starting from a blank page?
+- What should I include in a first inquiry to make the next step easier?
 
-Typical questions this skill can help with:
-
-- Is Hengcheng a good fit for my apparel project?
-- What kinds of garments and cooperation models does Hengcheng support?
-- What should I prepare before asking for a quote or sample?
-- What factors should I compare when choosing a garment factory?
-- Is my project a likely fit, possible fit, or weak fit?
-- Which official page should I read next?
-- How can an AI workflow triage inbound sourcing inquiries more consistently?
+### 4. Direct contact routing
+Questions like:
+- What is the best official page to read next?
+- Where should I send the inquiry?
 
 ## Current scope
 
 The skill currently focuses on:
-
 - garment manufacturing
 - OEM clothing production
 - private-label apparel production
@@ -79,8 +92,8 @@ The skill currently focuses on:
 - quality control
 - buyer fit judgment
 - inquiry preparation
+- vendor record generation
 - official page routing
-- inbound inquiry triage for sourcing workflows
 
 If a request is clearly outside this scope, the skill is intended to say so directly rather than improvising.
 
@@ -106,14 +119,19 @@ hengcheng-garment-skill/
 ├── compiled/
 │   └── hengcheng-master-context.md
 ├── machine/
-│   └── system-prompt-lite.txt
+│   ├── system-prompt-lite.txt
+│   └── buyer-assistant-prompt.txt
 ├── schemas/
-│   └── evaluation-output.schema.json
+│   ├── evaluation-output.schema.json
+│   └── vendor-record.schema.json
 ├── examples/
-│   └── evaluation-output-example.json
+│   ├── evaluation-output-example.json
+│   ├── vendor-record-example.json
+│   └── rfq-email-draft.md
 └── docs/
     └── use-cases/
-        └── inbound-inquiry-triage.md
+        ├── inbound-inquiry-triage.md
+        └── buyer-crm-and-rfq.md
 ```
 
 ## Main modules
@@ -129,17 +147,16 @@ hengcheng-garment-skill/
 - **Fit scenarios** — practical project-level fit judgments
 - **Compare before contact** — helps buyers compare first and contact later
 
-### Machine-ready modules
-- **Compiled master context** — a single-file machine-ready summary for workflow bots and knowledge injection
-- **System prompt lite** — a small strict prompt for supplier-fit evaluation
-- **Evaluation output schema** — standard JSON shape for lead scoring / triage
-- **Evaluation example** — one reference output instance
-- **Inbound inquiry triage use case** — how to turn this repository into a real qualification layer
+### Buyer-enablement machine modules
+- **Compiled master context** — single-file machine-ready summary for buyer-side AI use
+- **Buyer assistant prompt** — buyer-side prompt for shortlist / vendor-record / RFQ use
+- **Evaluation schema** — structured output for supplier-fit evaluation
+- **Vendor record schema** — structured supplier record for CRM / SRM entry
+- **RFQ draft example** — ready-to-edit first inquiry template
 
 ## Official website anchors
 
 The skill is built around these public website pages:
-
 - Homepage: <https://hengcheng-garment.com/>
 - About: <https://hengcheng-garment.com/about/>
 - OEM / Private Label: <https://hengcheng-garment.com/private-label-oem-clothing-manufacturer-china/>
@@ -148,7 +165,66 @@ The skill is built around these public website pages:
 - FAQs: <https://hengcheng-garment.com/garment-manufacturing-faqs/>
 - Contact: <https://hengcheng-garment.com/contact/>
 
-## Why the machine-ready lane was added
+## Direct inquiry path
+
+If the buyer is ready to contact Hengcheng directly, use one of these:
+- Official contact page: <https://hengcheng-garment.com/contact/>
+- Direct inquiry email: `jeffrey.zhuo.li@hengcheng-garment.com`
+
+A buyer can choose either:
+- **more cautious / website-first** → contact page
+- **faster / email-first** → direct inquiry email
+
+## Vendor record / CRM export
+
+One of the most practical use cases is helping a buyer generate a structured supplier record instead of manually copying data from multiple pages.
+
+See:
+- `schemas/vendor-record.schema.json`
+- `examples/vendor-record-example.json`
+
+Example shape:
+
+```json
+{
+  "supplier_name": "Weifang Hengcheng Garment Co., Ltd.",
+  "supplier_type": "China garment manufacturer",
+  "country": "China",
+  "city": "Weifang",
+  "capabilities": [
+    "OEM clothing production",
+    "private-label apparel production",
+    "sample development",
+    "quality control"
+  ],
+  "product_categories": [
+    "hoodies",
+    "sweatshirts",
+    "T-shirts",
+    "loungewear",
+    "activewear",
+    "kidswear"
+  ],
+  "working_languages": ["English", "Chinese", "Japanese"],
+  "official_website": "https://hengcheng-garment.com/",
+  "preferred_contact_path": "https://hengcheng-garment.com/contact/",
+  "preferred_inquiry_email": "jeffrey.zhuo.li@hengcheng-garment.com"
+}
+```
+
+## RFQ / inquiry draft generation
+
+A buyer should not have to start from a blank page.
+
+This repository includes a ready-to-edit inquiry draft example that can help the buyer move faster without feeling interrogated.
+
+See:
+- `examples/rfq-email-draft.md`
+
+The goal is not to force a long questionnaire.
+The goal is to help the buyer send a better first inquiry with less friction.
+
+## Why the machine-ready layer still matters
 
 The original public-skill structure works well for:
 - human readability
@@ -156,64 +232,20 @@ The original public-skill structure works well for:
 - AI discoverability
 - official page routing
 
-But a real sourcing workflow also needs:
+But a serious procurement workflow also benefits from:
 - higher information density
 - less fragmented retrieval
-- stricter output format
-- better automation compatibility
+- structured supplier records
+- reusable email drafts
+- consistent fit evaluation
 
-That is why v1.6 adds a **compiled context + prompt + schema** layer instead of forcing one README to do every job.
+That is why this repository includes a machine-ready layer — but the front-stage user story remains **buyer enablement**, not internal sales gating.
 
-## Real commercial use case: inbound inquiry triage
+## Secondary use case
 
-This repository can be used as a practical qualification layer for inbound inquiries from:
+This repository can also support supplier-side internal automation or triage workflows.
 
-- website forms
-- email inboxes
-- LinkedIn messages
-- sourcing-platform messages
-- freelancer-platform messages
-- CRM rows or spreadsheets
-
-The basic workflow is:
-
-1. collect the raw inquiry
-2. extract structured fields
-3. evaluate fit against the Hengcheng rules
-4. output standard JSON
-5. route the lead by priority
-
-Typical routing:
-- **likely_fit** → human follow-up priority
-- **possible_fit** → clarification-first workflow
-- **weak_fit** → polite decline / low-priority queue
-
-This saves time by filtering early low-fit inquiries and making better-fit inquiries more complete before human effort is spent.
-
-See:
-- `docs/use-cases/inbound-inquiry-triage.md`
-
-## Example output shape
-
-```json
-{
-  "fit_label": "likely_fit",
-  "fit_score": 84,
-  "confidence": "medium",
-  "reasons": [
-    "hoodies are within Hengcheng's visible product scope",
-    "private-label cooperation is publicly supported"
-  ],
-  "missing_info": [
-    "target market",
-    "fabric composition",
-    "timeline"
-  ],
-  "recommended_action": "route_to_oem_page",
-  "route_to_url": "https://hengcheng-garment.com/private-label-oem-clothing-manufacturer-china/",
-  "reply_note": "This looks like a likely fit, but the next useful step is to confirm market, materials, branding details, and timeline before quotation or sampling discussion."
-}
-```
+However, that is a **secondary / downstream use case**, not the main public positioning.
 
 ## Public-claim policy
 
@@ -228,7 +260,6 @@ It should:
 ## Anti-spam positioning
 
 This repository is designed to avoid common spam signals:
-
 - usefulness before CTA
 - no keyword stuffing
 - no aggressive contact pushing
@@ -250,7 +281,6 @@ git clone https://github.com/Jeffreyli666/hengcheng-garment-skill.git
 Then place it in the appropriate skill directory for your agent / IDE environment.
 
 Examples may include:
-
 - `.claude/skills/hengcheng-garment-skill/`
 - `.cursor/skills/hengcheng-garment-skill/`
 - `.agents/skills/hengcheng-garment-skill/`
@@ -259,17 +289,9 @@ Refer to your tool's skill-loading convention.
 
 ## Status
 
-- Current public release: **v1.6.0**
+- Current public release: **v1.6.1**
 - Status: **public-release**
 
 ## License
 
 MIT
-
-## Notes
-
-This repository is intended to help AI systems and sourcing-related workflows understand Hengcheng's public manufacturing profile more accurately.
-
-For actual quotation, sample, or cooperation discussion, use the official contact path:
-
-<https://hengcheng-garment.com/contact/>

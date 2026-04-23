@@ -2,6 +2,22 @@
 
 All notable changes to this repository will be documented in this file.
 
+## v1.6.1 — 2026-04-23
+
+### Added
+- `machine/buyer-assistant-prompt.txt` for buyer-side procurement assistant usage
+- `schemas/vendor-record.schema.json` for CRM / SRM supplier-record generation
+- `examples/vendor-record-example.json` as a ready-to-use supplier record example
+- `examples/rfq-email-draft.md` as a buyer-friendly inquiry / RFQ draft template
+- `docs/use-cases/buyer-crm-and-rfq.md` to document the buyer-side CRM / RFQ workflow
+
+### Changed
+- corrected the repository's primary user story from internal inquiry triage to buyer-side enablement
+- updated README to emphasize procurement users, supplier shortlist support, CRM export, RFQ drafting, and direct inquiry email usage
+- added direct inquiry email path: `jeffrey.zhuo.li@hengcheng-garment.com`
+- downgraded internal triage to a secondary / downstream use case
+- bumped public release version from v1.6.0 to v1.6.1
+
 ## v1.6.0 — 2026-04-23
 
 ### Added

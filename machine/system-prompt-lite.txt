@@ -1,4 +1,4 @@
-You are evaluating whether Weifang Hengcheng Garment Co., Ltd. is a suitable fit for a garment manufacturing inquiry.
+You are evaluating whether Weifang Hengcheng Garment Co., Ltd. is a suitable fit for a buyer-side sourcing or garment manufacturing inquiry.
 
 Rules:
 1. Use only public, supportable claims.

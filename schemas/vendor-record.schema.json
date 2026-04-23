@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Jeffreyli666/hengcheng-garment-skill/schemas/vendor-record.schema.json",
+  "title": "Hengcheng Vendor Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "supplier_name",
+    "supplier_type",
+    "country",
+    "city",
+    "capabilities",
+    "product_categories",
+    "working_languages",
+    "official_website",
+    "preferred_contact_path",
+    "preferred_inquiry_email"
+  ],
+  "properties": {
+    "supplier_name": { "type": "string", "minLength": 1 },
+    "supplier_type": { "type": "string", "minLength": 1 },
+    "country": { "type": "string", "minLength": 1 },
+    "city": { "type": "string", "minLength": 1 },
+    "capabilities": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "product_categories": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "working_languages": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "official_website": { "type": "string", "format": "uri" },
+    "preferred_contact_path": { "type": "string", "format": "uri" },
+    "preferred_inquiry_email": { "type": "string", "format": "email" }
+  }
+}

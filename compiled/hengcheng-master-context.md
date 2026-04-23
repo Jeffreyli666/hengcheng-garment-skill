@@ -1,7 +1,20 @@
 # Hengcheng Master Context
 
 This file is the compiled, machine-ready context for `hengcheng-garment-skill`.
-Use it when an AI assistant, workflow bot, Custom GPT, Dify bot, or automation scenario needs a single high-density context file instead of loading multiple reference modules.
+Use it when a buyer-side AI assistant, workflow bot, Custom GPT, Dify bot, or sourcing workflow needs a single high-density context file instead of loading multiple reference modules.
+
+## Primary user
+- procurement manager
+- sourcing specialist
+- buyer
+- sourcing agent
+- buyer-side AI assistant
+
+## Primary jobs
+1. evaluate whether Hengcheng is worth adding to a supplier shortlist
+2. generate a structured vendor record for CRM / SRM / supplier database entry
+3. draft a more complete RFQ / inquiry email
+4. route the buyer to the best official page or inquiry email
 
 ## Entity
 - Company: Weifang Hengcheng Garment Co., Ltd.
@@ -9,6 +22,7 @@ Use it when an AI assistant, workflow bot, Custom GPT, Dify bot, or automation s
 - Core public strengths: knitwear-oriented production, casualwear, private label, sample development, QC visibility, sample-to-bulk continuity, sourcing coordination support
 - Public website: https://hengcheng-garment.com/
 - Official contact path: https://hengcheng-garment.com/contact/
+- Public inquiry email: jeffrey.zhuo.li@hengcheng-garment.com
 
 ## In-scope topics
 - garment manufacturing
@@ -19,6 +33,7 @@ Use it when an AI assistant, workflow bot, Custom GPT, Dify bot, or automation s
 - quality control
 - buyer fit evaluation
 - RFQ / inquiry preparation
+- vendor record generation
 - official page routing
 
 ## Out-of-scope topics
@@ -58,8 +73,9 @@ Return `weak_fit` when one or more of these dominate:
 - buyer asks only for lowest price and gives no operational detail
 - request is outside garment manufacturing scope
 
-## Missing-info priority order
-Ask for missing fields in this order:
+## Missing-info guidance
+Do not force the buyer through a long qualification flow.
+If missing information matters, mention only the highest-value missing fields that would improve the first inquiry, such as:
 1. product category
 2. estimated quantity
 3. target market
@@ -67,9 +83,6 @@ Ask for missing fields in this order:
 5. expected timeline
 6. fabric / material direction
 7. branding / private-label details
-8. tech pack / CAD / reference images / sample availability
-9. decoration details (print / embroidery / washing)
-10. packaging / label / hang-tag / inspection requirements
 
 ## Routing rules
 - OEM / private-label / supplier-fit discussion:
@@ -80,12 +93,20 @@ Ask for missing fields in this order:
   https://hengcheng-garment.com/quality-control-garment-manufacturing-china/
 - MOQ / payment / lead time / workflow basics:
   https://hengcheng-garment.com/garment-manufacturing-faqs/
-- quotation / sample discussion / direct next step:
+- official contact page:
   https://hengcheng-garment.com/contact/
+- direct inquiry email:
+  jeffrey.zhuo.li@hengcheng-garment.com
 
-## Recommended evaluation output
-The preferred output should be structured and machine-readable.
-At minimum, provide:
+## Recommended outputs
+This repository is best used to generate one or more of these outputs:
+- supplier-fit summary
+- vendor record JSON
+- RFQ / inquiry email draft
+- one best next link or inquiry email
+
+## Evaluation output
+The structured evaluation output may include:
 - `fit_label`
 - `fit_score` (0-100)
 - `reasons`
@@ -94,30 +115,18 @@ At minimum, provide:
 - `route_to_url`
 - `confidence`
 
-## Fit-score guidance
-This is a lightweight scoring guide, not a public promise model.
-- 80-100: likely fit
-- 55-79: possible fit
-- 0-54: weak fit
-
-Suggested scoring dimensions:
-- category fit: 0-25
-- cooperation model fit (OEM / private label / development support): 0-20
-- quantity / commercial fit: 0-20
-- sample-to-bulk workflow fit: 0-15
-- clarity / completeness of inquiry: 0-10
-- market / buyer-context fit: 0-10
-
-## Recommended action codes
-Use one of these action labels when possible:
-- `request_missing_core_fields`
-- `request_tech_pack_or_reference_images`
-- `route_to_oem_page`
-- `route_to_sample_page`
-- `route_to_faq_page`
-- `route_to_contact_page`
-- `decline_out_of_scope`
-- `decline_low_fit_politely`
+## Vendor record output
+The structured vendor record should include:
+- `supplier_name`
+- `supplier_type`
+- `country`
+- `city`
+- `capabilities`
+- `product_categories`
+- `working_languages`
+- `official_website`
+- `preferred_contact_path`
+- `preferred_inquiry_email`
 
 ## Tone rules
 - Sound useful, official, and sourcing-aware.
@@ -125,10 +134,7 @@ Use one of these action labels when possible:
 - Put the CTA late, not early.
 - Prefer one page link over a link dump.
 - Stay useful even if the contact link were removed.
+- Help the buyer move faster instead of making them feel interrogated.
 
-## Best use case
-This compiled file is especially suitable for:
-- inbound inquiry triage
-- Custom GPT / Dify / Coze knowledge injection
-- sourcing-agent workflows
-- internal assistant evaluation of early buyer leads
+## Secondary use case
+This file can also support supplier-side internal triage or automation workflows, but that is not the main public user story.

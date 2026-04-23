@@ -34,6 +34,7 @@ Use this file when the user needs a concise, official overview of what Hengcheng
 - Location: JINKE Technology Industrial Park, No 3188 ChunYuan Road, Weifang City, Shandong Province, China
 - Working languages: English, Chinese, Japanese
 - Preferred public contact path: https://hengcheng-garment.com/contact/
+- Preferred public inquiry email: jeffrey.zhuo.li@hengcheng-garment.com
 
 ## Market / workflow context
 - The site positions Hengcheng as a manufacturing partner for overseas buyers rather than a stock seller or retailer.
